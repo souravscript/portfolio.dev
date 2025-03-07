@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Navbar from '@/app/components/Navbar';
 import Timeline from '@/app/components/Timeline';
 import Education from '@/app/components/Education';
+import profilePic from '@/public/profile__pic.png';
 
 interface FormData {
   name: string;
@@ -74,66 +75,62 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section id="home" className="pt-20 md:pt-32 px-4 md:px-0">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-0 md:gap-4">
-          <motion.div
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="md:w-1/2 space-y-6"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-dark-50">
               Hi, I'm <span className="text-blue-600 dark:text-blue-400">Shivam Sourav</span>
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-200">
+            <p className="text-xl text-gray-600 dark:text-dark-300">
               Full Stack Developer specializing in building exceptional digital experiences
             </p>
             <div className="flex space-x-4">
-              <motion.button
+              <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition"
               >
                 <Download size={20} />
                 <a
-                  href={`https://drive.google.com/uc?export=download&id=${file_id}`}
+                  href={`https://drive.google.com/uc?export=download&id=${file_id}`} // Replace [File ID] with your actual Google Drive file ID
                   download
-                  className="text-white"
+                  className="text-white transition"
                 >
                   <span>Download CV</span>
                 </a>
+
               </motion.button>
-              <motion.button
+              <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-opacity-10 transition"
+                className="border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-dark-800 transition"
               >
                 <Mail size={20} />
-                <a href="#contact" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
-                  <span>Contact Me</span>
-                </a>
+                <a href="#contact" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"><span>Contact Me</span></a>
               </motion.button>
             </div>
           </motion.div>
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:w-1/2 flex justify-center md:justify-end"
+            className="md:w-1/2 mt-8 md:mt-0"
           >
-            <div className="relative w-64 h-64">
-              <Image
-                src="/profile__pic.png"
-                alt="Shivam Sourav - Professional Portrait"
-                fill
-                priority
-                className="rounded-full shadow-xl object-cover border-4 border-white dark:border-gray-800"
-              />
-            </div>
+            <Image
+              src={profilePic}
+              alt="Shivam Sourav - Professional Portrait"
+              className="w-64 h-64 profilePic rounded-full shadow-xl"
+            />
+
           </motion.div>
         </div>
       </section>
-
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-gray-100 dark:bg-dark-800 px-4 md:px-0">
         <div className="max-w-7xl mx-auto">
